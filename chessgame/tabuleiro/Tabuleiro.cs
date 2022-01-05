@@ -14,5 +14,10 @@ namespace tabuleiro
             this.colunas = colunas;
             pecas = new Peca[linhas, colunas];
         }
+
+        public Peca peca (int linha, int coluna) //Retorna a peça na linha e na coluna informada
+        {
+            return pecas[linha, coluna];
+        }
     }
 }
