@@ -34,6 +34,19 @@ namespace tabuleiro
             p.posicao = pos;
         }
 
+        public Peca retirarPeca(Posicao pos) //Método que retira a peça do tabuleiro
+        {
+            if (peca(pos) == null) //Se não tiver nenhuma peça na posicao retorna nulo
+            {
+                return null;
+            }
+            Peca aux = peca(pos); //guarda a peça que estava na posicao
+            aux.posicao = null; //posicao do aux é null
+            pecas[pos.linha, pos.coluna] = null; //a posicao pos também recebe null
+            return aux; //Retorna a peça
+        
+        }
+
         public bool existePeca (Posicao pos) //Método que verifica se existe peça na posicao escolhida caso exista retorna true
         {
             validarPosicao(pos); //chama o metodo validarPosisao, caso esse método retorne false o programa é cortado e é apresentado na tela a mensagem da Exception
