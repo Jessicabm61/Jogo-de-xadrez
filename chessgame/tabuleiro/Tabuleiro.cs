@@ -26,11 +26,15 @@ namespace tabuleiro
         }
         public void colocarPeca(Peca p, Posicao pos) //Coloca uma peça 
         {
+            if (existePeca(pos)) //Se esse método retornar true lança a excecão 
+            {
+                throw new TabuleiroException("Já existe uma peça nessa posição");
+            }
             pecas[pos.linha, pos.coluna] = p;
             p.posicao = pos;
         }
 
-        public bool existePeca (Posicao pos)
+        public bool existePeca (Posicao pos) //Método que verifica se existe peça na posicao escolhida caso exista retorna true
         {
             validarPosicao(pos); //chama o metodo validarPosisao, caso esse método retorne false o programa é cortado e é apresentado na tela a mensagem da Exception
             return peca(pos) != null;
